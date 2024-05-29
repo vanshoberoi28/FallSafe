@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
+    <script>
+      function copyToClipboard(text) {
+          const el = document.createElement('textarea');
+          el.value = text;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          alert('Code copied to clipboard!');
+      }
+    </script>
+    <script>
+      function copyCode() {
+          const code = document.querySelector('pre');
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+          alert('Code copied to clipboard!');
+      }
+    </script>
+
+    <style>
+      .image-container {
+        
+        box-shadow: 0px 4px 10px rgba(91, 87, 92, 0.8);
+      }
+
+      .image-container img {
+        transition: transform 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: translateY(-10px); /* Adjust the value as needed */
+      }
+    </style>
+
+    <style>
+                /* .code-container {
+        position: relative;
+        } */
+
+        .code-copy-icon {
+        position: absolute;
+        top: 5;
+        right: 10;
+        }
+
+        .code-copy-icon button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Document</title>
+</head>
+<body>
+    <header class="text-gray-600 body-font bg-gray-200">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
+            <image href="bicycle-svgrepo-com.svg" width="24" height="24"/>
+          </svg>
+        <span class="ml-3 text-xl">FallSafe</span>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <!--<a href="#home" class="mr-5 hover:text-gray-900">About</a> -->
+            <a href="photos.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Photos</a>
+            <a href="code.html"  class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Code</a>
+            <a href="design.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Design</a>
+            <a href="team.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Team</a>
+          </nav>
+          <button onclick="scrollToSection('contact')" class="inline-flex items-center bg-gray-100 border-0 py-1 px-2 focus:outline-none hover:bg-purple-600 hover:text-gray-900 rounded text-base mt-4 md:mt-0">Contact for more
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+      <section id="Code" class="text-gray-600 body-font bg-gray-900">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-4xl text-4xl font-large font-bold title-font mb-4 text-white">CODE</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">See how it works!</p>
+          </div>
+
+          <div class="mt-4 flex items-center justify-left pl-20">
+            <pre class="overflow-x-auto bg-gray-400 p-1 rounded-md text-sm justify-left pr-10 pt-6 text-black">
+                <!-- <div class="code-copy-icon">
+                    <button onclick="copyCode()" class="text-white"><i class="fas fa-copy text-white"></i> Copy</button>
+                  </div> -->
+                 
+      #include "Wire.h"       
+      #include "I2Cdev.h"     
+      #include "MPU6050.h"    
+      
+      MPU6050 mpu;
+      int16_t ax, ay, az;
+      int16_t gx, gy, gz;
+      
+      struct MyData {
+        byte X;
+        byte Y;
+        byte Z;
+      };
+      
+      MyData data;
+      
+      void setup()
+      {
+        Serial.begin(9600);
+        Wire.begin();
+        mpu.initialize();
+        //pinMode(LED_BUILTIN, OUTPUT);
+      }
+      
+      void loop()
+      {
+        mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+        data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
+        data.Y = map(ay, -17000, 17000, 0, 255); 
+        data.Z = map(az, -17000, 17000, 0, 255);  // Y axis data
+        delay(500);
+        Serial.print("Axis X = ");
+        Serial.print(data.X);
+        Serial.print("  ");
+        Serial.print("Axis Y = ");
+        Serial.print(data.Y);
+        Serial.print("  ");
+        Serial.print("Axis Z  = ");
+        Serial.println(data.Z);
+      }
+      
+              </pre>
+              <!-- <div class="code-copy-icon">
+                <button onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
+              </div> -->
+              
+            
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="text-gray-600 bg-gray-900 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-5">
+            <h1 class="sm:text-3xl text-4xl font-large title-font mb-4 text-white font-bold">Contact Us</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">Want to know more?</p>
+          </div>
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                <div class="contact-icons">
+                  <div class="contact-icon">
+                      
+                      <a href="mailto:adheeshbahl2002@gmail.com" target="_blank" class="mr-6">
+                          <i class="far fa-envelope hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>  
+                      <a href="https://github.com/vanshoberoi28" target="_blank" class="mr-6">
+                          <i class="fab fa-github hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      <a href="https://www.linkedin.com/in/adheeshbahl/" target="_blank" >
+                          <i class="fab fa-linkedin hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

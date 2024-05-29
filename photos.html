@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
+    <script>
+      function copyToClipboard(text) {
+          const el = document.createElement('textarea');
+          el.value = text;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          alert('Code copied to clipboard!');
+      }
+    </script>
+    <script>
+      function copyCode() {
+          const code = document.querySelector('pre');
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+          alert('Code copied to clipboard!');
+      }
+    </script>
+
+    <style>
+      .image-container {
+        
+        box-shadow: 0px 4px 10px rgba(91, 87, 92, 0.8);
+      }
+
+      .image-container img {
+        transition: transform 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: translateY(-10px); /* Adjust the value as needed */
+      }
+    </style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 580px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Document</title>
+</head>
+<body>
+    <header class="text-gray-600 body-font bg-gray-200">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
+            <image href="bicycle-svgrepo-com.svg" width="24" height="24"/>
+          </svg>
+        <span class="ml-3 text-xl">FallSafe</span>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <!--<a href="#home" class="mr-5 hover:text-gray-900">About</a> -->
+            <a href="photos.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Photos</a>
+            <a href="code.html"  class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Code</a>
+            <a href="design.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Design</a>
+            <a  href="team.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Team</a>
+          </nav>
+          <button onclick="scrollToSection('contact')" class="inline-flex items-center bg-gray-100 border-0 py-1 px-2 focus:outline-none hover:bg-purple-600 hover:text-gray-900 rounded text-base mt-4 md:mt-0">Contact for more
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+    <section id="photos" class="text-gray-600 body-font bg-gray-900">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-2">
+            <h1 class="sm:text-4xl text-4xl font-large font-bold title-font mb-4 text-white">GALLERY</h1>
+          </div>
+          
+          <section class="text-gray-600 body-font">
+            <div class="flex flex-col text-center w-full mb-15">
+              <h1 class="sm:text-3xl text-3xl font-large font-bold title-font mb-2 text-gray-400">Surveys</h1>
+            </div>
+            <div class="container px-5 py-5 mx-auto">
+              <div class="flex flex-wrap -mx-4 -mb-15 text-center">
+                <div class="p-2 lg:w-1/2 md:w-1/2 lr-1">
+                  <div class="h-85 flex flex-col items-center text-center">
+                    <img alt="team" class="flex-shrink-0 rounded-lg  w-200 h-150 object-cover object-center mb-2 image-container " src="fig11.jpg">
+                    <div class="w-full">
+                      <h2 class="title-font font-medium text-lg text-white">%age of people think fall prevention cycles are more comfortable</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-2 lg:w-1/2 md:w-1/2 lr-1">
+                  <div class="h-85 flex flex-col items-center text-center">
+                    <img alt="team" class="flex-shrink-0 rounded-lg  w-200 h-150 object-cover object-center mb-2 image-container " src="fig22.jpg">
+                    <div class="w-full">
+                      <h2 class="title-font font-medium text-lg text-white">%age of people think fall prevention concept is important while purchasing</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> 
+          <br>
+          <br>
+
+          <div class="flex flex-col text-center w-full mb-15">
+            <h1 class="sm:text-3xl text-3xl font-large font-bold title-font mb-8 text-gray-400">Components</h1>
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-80 h-59 object-cover object-center" src="arduino.jpg">
+                <div class="px-8 py-10 relative z-10 w-80 h-59 border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-font font-large text-indigo-500 mb-1">Arduino NANO</h2>
+                  <h1 class="title-font text-lg font-small text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">This microcontroller board is a widely used, versatile platform and suitable for prototyping. <br> <br></p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-80 h-59 object-cover object-center" src="mpu.jpg">
+                <div class="px-8 py-10 relative z-10 w-100 border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-font font-large text-indigo-500 mb-1">MPU6050 Sensor</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">This accelerometer and gyroscope sensor is specifically designed to detect angular motion. <br>
+                  <br> </p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="support.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Bicycle Support Stands</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">They are readily available at Bicycle equipment shops and are to be bought keeping in mind the material strength of the stands</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="wheels.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Damped Wheels</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">These wheels must provide controlled deceleration and cushioning</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="locks.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Push Lock</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">The Push Lock works in such a way it does not allow the bicycle stands to bounce back on impact from the ground </p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="spring.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Spring Release</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">A pair of springs is attached to stands on the mounting brackets of the bicycle which are compressed position just before impact and right after the impact </p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="brackets.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Mounting Brackets</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">Custom-building these components allows for precise fitting to the bicycle's dimensions and specific design requirements</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 sm:w-1/2 p-6">
+              <div class="flex relative">
+                <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="solenoid.jpg">
+                <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 class="tracking-widest text-lg title-lg font-large text-indigo-500 mb-1">Solenoid Valve Lock Mechanism</h2>
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">About</h1>
+                  <p class="leading-relaxed">A solenoid valve is necessary because it must meet specific response times </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+         
+          
+
+        </div>
+      </section>
+      <section id="contact" class="text-gray-600 bg-gray-900 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-5">
+            <h1 class="sm:text-3xl text-4xl font-large title-font mb-4 text-white font-bold">Contact Us</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">Want to know more?</p>
+          </div>
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                <div class="contact-icons">
+                  <div class="contact-icon">
+                      
+                      <a href="mailto:adheeshbahl2002@gmail.com" target="_blank" class="mr-6">
+                          <i class="far fa-envelope hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>  
+                      <a href="https://github.com/vanshoberoi28" target="_blank" class="mr-6">
+                          <i class="fab fa-github hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      <a href="https://www.linkedin.com/in/adheeshbahl/" target="_blank" >
+                          <i class="fab fa-linkedin hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

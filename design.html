@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
+    <script>
+      function copyToClipboard(text) {
+          const el = document.createElement('textarea');
+          el.value = text;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          alert('Code copied to clipboard!');
+      }
+    </script>
+    <script>
+      function copyCode() {
+          const code = document.querySelector('pre');
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+          alert('Code copied to clipboard!');
+      }
+    </script>
+
+    <style>
+      .image-container {
+        
+        box-shadow: 0px 4px 10px rgba(91, 87, 92, 0.8);
+      }
+
+      .image-container img {
+        transition: transform 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: translateY(-10px); /* Adjust the value as needed */
+      }
+    </style>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 580px; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Document</title>
+</head>
+<body>
+    <header class="text-gray-600 body-font bg-gray-200">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
+            <image href="bicycle-svgrepo-com.svg" width="24" height="24"/>
+          </svg>
+        <span class="ml-3 text-xl">FallSafe</span>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <!--<a href="#home" class="mr-5 hover:text-gray-900">About</a> -->
+            <a href="photos.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Photos</a>
+            <a href="code.html"  class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Code</a>
+            <a href="design.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Design</a>
+            <a href="team.html" class="mr-5 hover:text-gray-900 hover:bg-purple-600 rounded border-0 py-1 px-2" style="cursor: pointer;">Team</a>
+          </nav>
+          <button onclick="scrollToSection('contact')" class="inline-flex items-center bg-gray-100 border-0 py-1 px-2 focus:outline-none hover:bg-purple-600 hover:text-gray-900 rounded text-base mt-4 md:mt-0">Contact for more
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+    </header>
+    <section id="photos" class="text-gray-600 body-font bg-gray-900">
+        <div class="container px-5 py-20 mx-auto">
+            <div class="flex flex-col text-center w-full mb-2">
+                <h1 class="sm:text-4xl text-4xl font-large font-bold title-font mb-4 text-white">Design Concepts</h1>
+            </div>
+            <div class="row">
+                <div class="column" style="background-color:#aca8f1;">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white mb-8">Old</h1>
+                <p class="leading-relaxed text-lg text-black">1. <b>Lock Mechanism:</b> Redesigned for greater reliability and consistent performance under various conditions.<br>
+                    2. <b>Material Upgrade:</b> Use of stainless steel for improved durability, impact resistance, and corrosion resistance.<br>
+                    3. <b>Manufacturing Efficiency:</b> Simplified design reduces complexity, costs, and assembly time, incorporating modular design principles for easier assembly and disassembly.<br>
+                    4. <b>Sensor Enhancement: </b>Advanced gyroscopic sensor system for precise and responsive deployment, with real-time data processing and self-calibration functions.<br>
+                    5. <b>Overall Simplification:</b> Fewer parts and easier maintenance enhance product robustness, incorporating intuitive user interfaces and multifunctional components.<br></p>
+                </div>
+                <div class="column" style="background-color:#9d98f7;">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-white mb-8">Latest</h1>
+                <p class="leading-relaxed text-lg text-black">1. <b>Actuators:</b> Integration of solenoid valves for precise and reliable deployment of the support wheel. <br>
+                    2. <b>Power Supply: </b>Use of lead-acid batteries to provide stable and efficient power for both actuators and the electronic system.<br>
+                    3. <b>Protection: </b>Waterproof casing for batteries and circuitry to ensure durability and functionality in all weather conditions.<br>
+                    4. <b>Sensor and Control System: </b>Advanced MPU6050 sensor and Arduino Nano for accurate tilt detection and control, including related electronic components for stable operation.<br>
+                    5. <b>Support Stands:</b> Stainless steel stands mounted on the central axle of the back wheel for maximum stability and durability.<br>
+                    6. <b>Telescopic Springs:</b>Mounted on the same frame, these springs provide a momentum push for the stands to deploy as supposed to just gravity.<br>
+                    7. <b>One way spring valve: </b>Mounted on the same framework, prevent the stand from bouncing back towards the top when faced with sideways pressure.<br>
+                    8. <b>Design Integration: </b>Seamless integration of all components to ensure cohesive and efficient system operation, with a focus on ease of manufacturing and maintenance.<br></p>
+                </div>
+            </div>
+        </div>
+        <div class="container px-5 py-15 mx-auto">
+            <div class="flex flex-col text-center w-full mb-2">
+                <h1 class="sm:text-4xl text-4xl font-large font-bold title-font mb-4 text-white">Procedure</h1>
+            </div>
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-24 mx-auto flex flex-wrap">
+                  <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                      <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">1</div>
+                    <div class="flex-grow md:pl-12 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                      <div class="flex-shrink-0 w-48 h-48  bg-indigo-100 text-indigo-500  inline-flex items-center justify-center">
+                        <img src="step1.jpg" alt="Description of image" class="w-25 h-25 ">
+                    </div>
+                    
+                      <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                        <h2 class="font-medium title-font text-white mb-1 text-xl">Design and Planning
+                            </h2>
+                        <p class="leading-relaxed text-gray-400 ">1. Creation of the detailed CAD (Computer-Aided Design) model of the stands, mounting brackets and various other components used. This step ensures that all the chosen components will fit together correctly and function as intended.<br>
+                            2. Planning of the layout for the Arduino NANO, MPU6050 sensor within the housing which will be used to detect the tilt angle and the solenoid valve latch lock mechanism which need to be integrated together to function as intended and optimize the available space and also ensure easy access for maintenance. A circuit diagram was created for the various connections of the components and all the from the electronics housing and the batteries to the solenoid latch locks. Below is a picture of the initial circuit diagram.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                      <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">2</div>
+                    <div class="flex-grow md:pl-12 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                      <div class="flex-shrink-0 w-48 h-48  bg-indigo-100 text-indigo-500  inline-flex items-center justify-center">
+                        <img src="step2.jpg" alt="Description of image" class="w-25 h-25 ">
+                    </div>
+                      <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                        <h2 class="font-medium title-font text-white mb-1 text-xl">Fabrication of the Stands with the Mounting Brackets
+                            
+                            </h2>
+                        <p class="leading-relaxed text-gray-400">1. Cutting metal sheets and rods: Use precision cutting tools to shape the metal components to the exact dimensions specified in the CAD drawings.<br>
+                            2. Drilling holes for mounting: Prepare the stands and brackets with holes for screws or bolts, ensuring accurate alignment with the bicycle frame.<br>
+                            3. Assembling components: Use screws, bolts, and nuts to assemble the stands with the mounting brackets. Ensure all connections from the electronic unit and the battery are securely connected to the Solenoid Valve locks and stable.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                      <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">3</div>
+                    <div class="flex-grow md:pl-12 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                      <div class="flex-shrink-0 w-48 h-48  bg-indigo-100 text-indigo-500  inline-flex items-center justify-center">
+                        <img src="step3.jpg" alt="Description of image" class="w-80 h-59 ">
+                    </div>
+                      <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                        <h2 class="font-medium title-font text-white mb-1 text-xl">Assembly of Electronics and Arduino Coding 
+                            </h2>
+                        <p class="leading-relaxed text-gray-400">1. Secure Arduino UNO and MPU6050 sensor: These components were mounted within the protective housing which was made of plastic using screws or brackets to keep them stable.<br>
+                            2. Wiring components: Connect the MPU6050 sensor to the Arduino and the Arduino to the solenoid valve, following the circuit design to ensure correct functionality.<br>
+                            3. Testing connections: Before full assembly, test the electronic connections and upload the program to the Arduino IDE to verify the sensor and solenoid valve interaction.<br>
+                            4. The Calibration of the MPU6050 sensor was done to find out its location in the X-Y-Z axis planes. And also, the tilt angle calculation programmed was coded on the Arduino IDE software.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                      <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">4</div>
+                    <div class="flex-grow md:pl-12 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                      <div class="flex-shrink-0 w-48 h-48  bg-indigo-100 text-indigo-500  inline-flex items-center justify-center">
+                        <img src="pic1.jpg" alt="Description of image" class="w-80 h-59 ">
+                    </div>
+                      <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                        <h2 class="font-medium title-font text-white mb-1 text-xl">4.	Integration of Mechanisms
+                            
+                            </h2>
+                        <p class="leading-relaxed text-gray-400">1. Attach solenoid valve to mounting brackets: Ensure the solenoid is securely fixed and can release the lock on the stands effectively.<br>
+                            2. Connect stands to brackets: Ensure the stands can pivot or drop into place when the solenoid releases the lock, providing a stable support when deployed.<br>
+                            3. Mount assembly on bicycle: Secure the entire mechanism to the bicycle frame, ensuring it does not interfere with normal riding and can deploy correctly when needed.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              
+        </div>
+        <div class="flex flex-col text-center w-full mb-15">
+          <h1 class="sm:text-3xl text-3xl font-large font-bold title-font mb-8 text-gray-400">Final Product</h1>
+        </div>
+        <div class="container px-5 py-5 mx-auto">
+          <div class="flex flex-wrap -mx-4 -mb-15 text-center">
+            <div class="p-2 lg:w-1/2 md:w-1/2 lr-1">
+              <div class="h-85 flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg  w-200 h-150 object-cover object-center mb-2 image-container " src="final.jpg">
+                <!-- <div class="w-full">
+                  <h2 class="title-font font-medium text-lg text-white">%age of people think fall prevention cycles are more comfortable</h2>
+                </div> -->
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/2 md:w-1/2 lr-1">
+              <div class="h-85 flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg  w-200 h-150 object-cover object-center mb-2 image-container " src="final1.jpg">
+                <!-- <div class="w-full">
+                  <h2 class="title-font font-medium text-lg text-white">%age of people think fall prevention concept is important while purchasing</h2>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </section>
+
+      
+
+      
+      <section id="contact" class="text-gray-600 bg-gray-900 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-5">
+            <h1 class="sm:text-3xl text-4xl font-large title-font mb-4 text-white font-bold">Contact Us</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">Want to know more?</p>
+          </div>
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                <div class="contact-icons">
+                  <div class="contact-icon">
+                      
+                      <a href="mailto:adheeshbahl2002@gmail.com" target="_blank" class="mr-6">
+                          <i class="far fa-envelope hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>  
+                      <a href="https://github.com/vanshoberoi28" target="_blank" class="mr-6">
+                          <i class="fab fa-github hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      <a href="https://www.linkedin.com/in/adheeshbahl/" target="_blank" >
+                          <i class="fab fa-linkedin hover:bg-purple-600 hover:text-gray-900 justify-center rounded-full p-2 " style="font-size: 24px;"></i>
+                      </a>
+                      
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      
+      
+
+</body>
+</html>
